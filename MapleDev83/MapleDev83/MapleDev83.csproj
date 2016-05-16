@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,12 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Snippets.cs" />
+    <Compile Include="Network\Client.cs" />
+    <Compile Include="Network\Crypt\Cipher.cs" />
+    <Compile Include="Network\Crypt\Constants.cs" />
+    <Compile Include="Network\Crypt\FastAES.cs" />
+    <Compile Include="Network\Crypt\InitializationVector.cs" />
+    <Compile Include="Network\Crypt\PasswordCrypter.cs" />
+    <Compile Include="Network\PacketHandling\PacketReader.cs" />
+    <Compile Include="Network\PacketHandling\PacketWriter.cs" />
+    <Compile Include="Network\PacketHandling\RecvOpcodes.cs" />
+    <Compile Include="Network\PacketHandling\SendOpcodes.cs" />
+    <Compile Include="Network\Server.cs" />
+    <Compile Include="Network\WorldServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
