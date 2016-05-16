@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MSDEV83.Net.PacketHandler
+﻿namespace MapleDev83.Network.PacketHandling
 {
+    using System;
+
     class PacketReader
     {
         byte[] buffer;

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace MSDEV83.Net.Crypt
+namespace MapleDev83.Network.Crypt
 {
     static class PasswordCrypter
     {

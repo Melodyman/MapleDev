@@ -11,15 +11,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MSDEV83.Net.Crypt
+namespace MapleDev83.Network.Crypt
 {
+    using System.Security;
     /// <summary>
     /// FastAES based on the AesFastEngine from bouncy castle
     /// </summary>

@@ -2,8 +2,8 @@
 {
     using System.Net.Sockets;
     using Extensions;
-    using MSDEV83.Net.Crypt;
-    using MSDEV83.Net.PacketHandler;
+    using PacketHandling;
+    using Crypt;
 
     /// <summary>
     /// Class that contains client information
