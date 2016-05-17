@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,13 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\MySqlDataProvider.cs" />
     <Compile Include="Extensions\Snippets.cs" />
+    <Compile Include="Network\ChannelServer.cs" />
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\Crypt\Cipher.cs" />
     <Compile Include="Network\Crypt\Constants.cs" />
     <Compile Include="Network\Crypt\FastAES.cs" />
     <Compile Include="Network\Crypt\InitializationVector.cs" />
     <Compile Include="Network\Crypt\PasswordCrypter.cs" />
+    <Compile Include="Network\PacketHandling\PacketProcessor.cs" />
     <Compile Include="Network\PacketHandling\PacketReader.cs" />
     <Compile Include="Network\PacketHandling\PacketWriter.cs" />
     <Compile Include="Network\PacketHandling\RecvOpcodes.cs" />

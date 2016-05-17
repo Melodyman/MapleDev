@@ -11,10 +11,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-
 namespace MapleDev83.Network.Crypt
 {
     using System.Security;
+
     /// <summary>
     /// FastAES based on the AesFastEngine from bouncy castle
     /// </summary>
