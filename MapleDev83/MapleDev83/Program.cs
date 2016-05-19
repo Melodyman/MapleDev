@@ -2,8 +2,8 @@
 {
     using System;
     using System.Net;
-    using Network;
     using Data;
+    using Network;
 
     /// <summary>
     /// Types of flags of world server
@@ -66,6 +66,9 @@
         public static ulong AESKey = 0x130806B41B0F3352;
         public static WorldServer worldServer;
         public static MySqlDataProvider mysqlDataProvider;
+        public static Random random = new Random();
+        public static readonly DateTime Jan1st1970 = new DateTime
+            (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
         /// The main code

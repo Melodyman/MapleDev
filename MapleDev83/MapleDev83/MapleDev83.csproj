@@ -54,6 +54,8 @@
     <Compile Include="Network\Crypt\FastAES.cs" />
     <Compile Include="Network\Crypt\InitializationVector.cs" />
     <Compile Include="Network\Crypt\PasswordCrypter.cs" />
+    <Compile Include="Network\PacketHandling\Handlers\LoginHandlers\Login.cs" />
+    <Compile Include="Network\PacketHandling\MaplePacketCreator.cs" />
     <Compile Include="Network\PacketHandling\PacketProcessor.cs" />
     <Compile Include="Network\PacketHandling\PacketReader.cs" />
     <Compile Include="Network\PacketHandling\PacketWriter.cs" />

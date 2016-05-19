@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Dynamic;
     using MySql.Data.MySqlClient;
-    
+    using System.Data;
     /// <summary>
     /// Data provider from the MySQL server
     /// </summary>
@@ -68,25 +68,15 @@
         /// </summary>
         /// <param name="query">The query to execute</param>
         /// <returns>List of rows as Dictionary to the field and its value</returns>
-        public List<dynamic> Select(string query)
+        public DataTable Select(string query)
         {
+            DataTable dt = new DataTable();
             MySqlCommand cmd = new MySqlCommand(query, this.connection);
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            var list = new List<dynamic>();
-
-            while (dataReader.Read())
+            using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
             {
-                var obj = new ExpandoObject();
-                var d = obj as IDictionary<string, object>;
-                for (int index = 0; index < dataReader.FieldCount; index++)
-                {
-                    d[dataReader.GetName(index)] = dataReader.GetString(index);
-                }
-
-                list.Add(obj);
+                sda.Fill(dt);
             }
-
-            return list;
+            return dt;
         }
 
         public void Update(string query)

@@ -1,6 +1,7 @@
 ﻿namespace MapleDev83.Extensions
 {
     using System;
+    using System.Linq;
     using System.Text;
 
     /// <summary>
@@ -14,8 +15,7 @@
         /// <returns>Returns the random number</returns>
         public static int Random()
         {
-            Random rnd = new Random();
-            return rnd.Next();
+            return Program.random.Next();
         }
 
         /// <summary>
@@ -41,6 +41,58 @@
             }
 
             return sb.ToString();
+        }
+
+        
+        public static void Split<T>(T[] array, int index, out T[] first, out T[] second)
+        {
+            first = array.Take(index).ToArray();
+            second = array.Skip(index).ToArray();
+        }
+
+        public static string TodayDate()
+        {
+            DateTime today = DateTime.Today.Date;
+            return today.ToString("MM-dd-yyyy");
+        }
+        public static string real_escape_string(string original)
+        {
+            return ReplaceStrings(original, new string[] { "\n", "\r", "\\", "'", "\'", "\"", "→" });
+        }
+
+        public static string ReplaceStrings(string original, string[] replace, string placetaker = "")
+        {
+            string copy = original;
+            for (int i = 0; i < replace.Length; i++)
+            {
+                copy = copy.Replace(replace[i], placetaker);
+            }
+            return copy;
+        }
+
+        public static int IntLength(int p)
+        {
+            return (int)Math.Floor(Math.Log10(p)) + 1;
+        }
+
+        public static long CurrentTimeMillis()
+        {
+            return (long)(DateTime.UtcNow - Program.Jan1st1970).TotalMilliseconds;
+        }
+
+        public static long MapleTime(long t)
+        {
+            switch (t)
+            {
+                case -1: // default
+                    return 150842304000000000L;
+                case -2: // zero time 
+                    return 94354848000000000L;
+                case -3: // perm
+                    return 150841440000000000L;
+                default:
+                    return t * 10000 + 116444592000000000L;
+            }
         }
     }
 }

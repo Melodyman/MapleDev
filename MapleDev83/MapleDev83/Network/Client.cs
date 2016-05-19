@@ -5,7 +5,7 @@
     using Extensions;
     using PacketHandling;
     using Crypt;
-    
+
     /// <summary>
     /// Class that contains client information
     /// </summary>
@@ -52,6 +52,11 @@
         private PacketProcessor packetProcessor;
 
         /// <summary>
+        /// Packet creator
+        /// </summary>
+        private MaplePacketCreator packetCreator;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Client" /> class.
         /// </summary>
         /// <param name="socket">The client's socket</param>
@@ -67,6 +72,7 @@
             this.buffer = new byte[1024];
             this.dataWaiting = false;
             this.packetProcessor = new PacketProcessor();
+            this.packetCreator = new MaplePacketCreator();
             this.Handshake();
         }
 
@@ -79,6 +85,15 @@
         /// On client logged successfully into the server, the event occurred
         /// </summary>
         public event OnFinishLogin OnLogged;
+
+
+        public MaplePacketCreator PacketCreator
+        {
+            get
+            {
+                return this.packetCreator;
+            }
+        }
 
         /// <summary>
         /// Send handshake to the client
@@ -118,13 +133,13 @@
         private void OnDataReceived(IAsyncResult ar)
         {
             int received = this.socket.EndReceive(ar);
-            if(received == 0)
+            if (received == 0)
             {
 
             }
             else
             {
-                if(this.dataWaiting)
+                if (this.dataWaiting)
                 {
                     // Handle more data then in the packet
                     /*
